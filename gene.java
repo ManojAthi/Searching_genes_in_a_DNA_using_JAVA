@@ -4,8 +4,8 @@ import java.io.*;
 import edu.duke.*;
 
 /**
-    author : A.Manoj Kumar
-    */
+  * @author A.Manoj Kumar
+  */
 
 public class gene {
     
