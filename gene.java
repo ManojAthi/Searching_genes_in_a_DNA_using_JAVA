@@ -3,7 +3,13 @@ import java.lang.*;
 import java.io.*;
 import edu.duke.*;
 
+/**
+    author : A.Manoj Kumar
+    */
+
 public class gene {
+    
+    //finds a particular codon's location(index)
     public int findcodon(String dna,int start, String stopgene){
         int currindex = dna.indexOf(stopgene,start);
         while(currindex != -1){
@@ -16,6 +22,8 @@ public class gene {
         }
         return -1;
     }
+    
+    //finds a gene starting with ATG codon.
     public String findGene(String dna,int Start){
         int startIndex = dna.indexOf("ATG",Start);
         if(startIndex == -1){ //ATGATCTAATTTATGCTGCAACGGTGAAGA
@@ -40,6 +48,7 @@ public class gene {
         return dna.substring(startIndex,minIndex +3);
     }
     
+    //Prints a gene
     public void printGene(String dna) {
         int Start =0;
         while(true){
@@ -52,6 +61,7 @@ public class gene {
         }
     }
     
+    //cg ratio is the ratio between total number of "C" and "G" divided by the total length of the gene
     public void cgratioGene(String dna) {
         int Start =0;
         int count = 0;
@@ -76,6 +86,7 @@ public class gene {
         System.out.println("no of genes having cgratio greater than 0.35="+count);
     }
     
+    //cg ratio of the entire DNA
     public void cgratioDna(String dna){
         int c=0,g=0;
         for(int i=0;i<dna.length();i++){
@@ -89,6 +100,7 @@ public class gene {
         System.out.println("cgratio of DNA = "+((float)c+g)/dna.length());
     }
     
+    //this method finds and counts a particular codon in the entire DNA
     public void findCTG(String dna){
         int start=0;
         int count=0;
@@ -105,6 +117,7 @@ public class gene {
         System.out.println("total no of CTG genes = "+count);
     }
     
+    //this method prints the total number of genes present in the DNA
     public void printnumGene(String dna) {
         int Start =0;
         int count = 0;
@@ -127,6 +140,7 @@ public class gene {
         findCTG("ATGCTGTGACTGATGCTGTAA");
     }
     
+    //this method is used to read the DNA from the mentioned file
     public void testResource(){
         FileResource fr = new FileResource("brca1line.fa");
         String dna = fr.asString();
